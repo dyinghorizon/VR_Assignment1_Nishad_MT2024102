@@ -1,7 +1,5 @@
 # VR_Assignment1_Nishad_MT2024102
 
-# Computer Vision Assignment
-
 This repository contains solutions to a computer vision assignment with two problems:
 
 1. **Problem 1: Coin Detection and Segmentation** - Techniques to detect, segment, and count coins in an image
@@ -98,23 +96,37 @@ dots_contours = [cnt for cnt in contours if np.shape(cnt)[0] > min_ring_size]
 ### Visual Outputs Coin Detection
 
 #### Original Image
-![Original Coin Image](output_images/original_coin_image.png)
-*Figure 1: Original input image containing Indian coins of different denominations*
+
+<div align="center">
+  <img src="output_images/original_coin_image.png" alt="Original Coin Image">
+  <p><em>Figure 1: Original input image containing Indian coins of different denominations</em></p>
+</div>
 
 #### Edge Detection Results
-![Sobel Edge Detection](output_images/edge_detection_sobel.png)
-*Figure 2: Sobel edge detection highlighting coin boundaries*
 
-![Canny Edge Detection](output_images/edge_detection_canny.png)
-*Figure 3: Canny edge detection providing precise edges with better noise suppression*
+<div align="center">
+  <img src="output_images/edge_detection_sobel.png" alt="Sobel Edge Detection">
+  <p><em>Figure 2: Sobel edge detection highlighting coin boundaries</em></p>
+</div>
+
+<div align="center">
+  <img src="output_images/edge_detection_canny.png" alt="Canny Edge Detection">
+  <p><em>Figure 3: Canny edge detection providing precise edges with better noise suppression</em></p>
+</div>
 
 #### Segmentation Results
-![Binary Segmentation](output_images/segmentation_binary.png)
-*Figure 4: Binary thresholded image clearly separating coins from background*
+
+<div align="center">
+  <img src="output_images/segmentation_binary.png" alt="Binary Segmentation">
+  <p><em>Figure 4: Binary thresholded image clearly separating coins from background</em></p>
+</div>
 
 #### Coin Detection and Counting
-![Final Coin Contours](output_images/final_coin_contours.png)
-*Figure 5: The final result showing 7 detected coins with colored contours*
+
+<div align="center">
+  <img src="output_images/final_coin_contours.png" alt="Final Coin Contours">
+  <p><em>Figure 5: The final result showing 7 detected coins with colored contours</em></p>
+</div>
 
 ## Problem 2: Image Stitching for Panorama
 
@@ -179,25 +191,26 @@ status, panorama = stitcher.stitch(images)
 ### Visual Outputs Panorama
 
 #### Feature Detection
-![Keypoints Visualization](output_images/keypoints_visualization.png)
-*Figure 6: Keypoints detected on the first image with green circles indicating scale*
+
+<div align="center">
+  <img src="output_images/keypoints_visualization.png" alt="Keypoints Visualization">
+  <p><em>Figure 6: Keypoints detected on the first image with green circles indicating scale</em></p>
+</div>
 
 #### Feature Matching
-![Matches Visualization](output_images/matches_visualization.png)
-*Figure 7: Matching features between the first two images shown with connecting lines*
+
+<div align="center">
+  <img src="output_images/matches_visualization.png" alt="Matches Visualization">
+  <p><em>Figure 7: Matching features between the first two images shown with connecting lines</em></p>
+</div>
 
 #### Final Panorama
-![Final Panorama](output_images/final_panorama.png)
-*Figure 8: The final stitched panorama showing a seamless cityscape*
+
+<div align="center">
+  <img src="output_images/final_panorama.png" alt="Final Panorama">
+  <p><em>Figure 8: The final stitched panorama showing a seamless cityscape</em></p>
+</div>
 
 ## Limitations and Future Work
 
 The methods that we are using for coin detection are not intelligent, so the code will not be inherently robust. Depending on the image, we can tweak some parameters in the code such as sigma (for blurring), manual threshold values, and size of contours. By making these adjustments, the code will work for other images as well, assuming there is minimal noise in the background.
-
-For the panorama stitching, the current implementation relies heavily on OpenCV's built-in `Stitcher_create()` rather than implementing the full stitching pipeline manually. Future work could include implementing:
-
-1. Custom homography calculation using the matched keypoints
-2. Perspective warping and image transformation
-3. Custom blending techniques for smoother transitions
-4. Exposure compensation to handle brightness differences between images
-5. Handling for when stitching fails
