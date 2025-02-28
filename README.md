@@ -1,5 +1,7 @@
 # VR_Assignment1_Nishad_MT2024102
 
+# Computer Vision Assignment
+
 This repository contains solutions to a computer vision assignment with two problems:
 
 1. **Problem 1: Coin Detection and Segmentation** - Techniques to detect, segment, and count coins in an image
@@ -12,10 +14,12 @@ This repository contains solutions to a computer vision assignment with two prob
   - [How to Run](#how-to-run-coin-detection)
   - [Methods Chosen](#methods-chosen-coin-detection)
   - [Results and Observations](#results-and-observations-coin-detection)
+  - [Visual Outputs](#visual-outputs-coin-detection)
 - [Problem 2: Image Stitching for Panorama](#problem-2-image-stitching-for-panorama)
   - [How to Run](#how-to-run-panorama)
   - [Methods Chosen](#methods-chosen-panorama)
   - [Results and Observations](#results-and-observations-panorama)
+  - [Visual Outputs](#visual-outputs-panorama)
 - [Limitations and Future Work](#limitations-and-future-work)
 
 ## Dependencies
@@ -27,35 +31,6 @@ This repository contains solutions to a computer vision assignment with two prob
 - scikit-image
 - Google Colab (for execution environment)
 
-## Directory Structure
-
-```
-assignment/
-│
-├── Coin_Detection_Segmentation.ipynb
-├── Stitched_panorama.ipynb
-├── README.md
-│
-├── images/
-│   ├── coins2.jpg
-│   ├── balcony_1.jpg
-│   ├── balcony_2.jpg
-│   ├── balcony_3.jpg
-│   └── balcony_4.jpg
-│
-└── output_images/
-    ├── original_coin_image.jpg
-    ├── edge_detection_sobel.jpg
-    ├── edge_detection_canny.jpg
-    ├── segmentation_binary.jpg
-    ├── final_coin_contours.jpg
-    ├── keypoints_visualization.jpg
-    ├── matches_visualization.jpg
-    └── final_panorama.jpg
-```
-
-All visual outputs are saved in the `output_images/` directory and referenced in this README.
-
 ## Problem 1: Coin Detection and Segmentation
 
 ### How to Run Coin Detection
@@ -64,7 +39,6 @@ All visual outputs are saved in the `output_images/` directory and referenced in
 2. Upload your coin image (e.g., `coins2.jpg`) to the Colab environment or use the provided image in the `images/` folder
 3. Update the path in the code if necessary: `filename = '/content/coins2.jpg'`
 4. Execute all cells in the notebook sequentially
-5. Save all visual outputs to the `output_images/` directory
 
 ### Methods Chosen Coin Detection
 
@@ -121,14 +95,26 @@ dots_contours = [cnt for cnt in contours if np.shape(cnt)[0] > min_ring_size]
 - Contour filtering based on size (min_ring_size = 1200) successfully eliminated small noise contours
 - The algorithm successfully detected and counted 7 coins in the image
 
-The following visual outputs are available in the `output_images/` directory:
+### Visual Outputs Coin Detection
 
-1. **Original Image**: The input image containing 7 Indian coins of different denominations
-2. **Edge Detection Results**: 
-   - Sobel edge detection highlights the boundaries of coins
-   - Canny edge detection provides more precise edges with better noise suppression
-3. **Segmentation Results**: The binary thresholded image clearly separates coins from the background
-4. **Coin Detection and Counting**: Each coin is distinctly identified and outlined with a different color
+#### Original Image
+![Original Coin Image](output_images/original_coin_image.png)
+*Figure 1: Original input image containing Indian coins of different denominations*
+
+#### Edge Detection Results
+![Sobel Edge Detection](output_images/edge_detection_sobel.png)
+*Figure 2: Sobel edge detection highlighting coin boundaries*
+
+![Canny Edge Detection](output_images/edge_detection_canny.png)
+*Figure 3: Canny edge detection providing precise edges with better noise suppression*
+
+#### Segmentation Results
+![Binary Segmentation](output_images/segmentation_binary.png)
+*Figure 4: Binary thresholded image clearly separating coins from background*
+
+#### Coin Detection and Counting
+![Final Coin Contours](output_images/final_coin_contours.png)
+*Figure 5: The final result showing 7 detected coins with colored contours*
 
 ## Problem 2: Image Stitching for Panorama
 
@@ -141,7 +127,6 @@ The following visual outputs are available in the `output_images/` directory:
    image_paths = ['/content/balcony_1.jpg', '/content/balcony_2.jpg', '/content/balcony_3.jpg', '/content/balcony_4.jpg']
    ```
 4. Execute all cells in the notebook sequentially
-5. Save all visual outputs to the `output_images/` directory
 
 ### Methods Chosen Panorama
 
@@ -191,11 +176,19 @@ status, panorama = stitcher.stitch(images)
 - The stitching process successfully created a seamless panoramic view from 4 overlapping images
 - The final panorama shows a wide cityscape view with good alignment between the original images
 
-The following visual outputs are available in the `output_images/` directory:
+### Visual Outputs Panorama
 
-1. **Feature Detection**: Keypoints detected on the first image are visualized with green circles
-2. **Feature Matching**: Matching features between the first two images are visualized with connecting lines
-3. **Final Panorama**: The successfully stitched panoramic image showing the complete cityscape
+#### Feature Detection
+![Keypoints Visualization](output_images/keypoints_visualization.png)
+*Figure 6: Keypoints detected on the first image with green circles indicating scale*
+
+#### Feature Matching
+![Matches Visualization](output_images/matches_visualization.png)
+*Figure 7: Matching features between the first two images shown with connecting lines*
+
+#### Final Panorama
+![Final Panorama](output_images/final_panorama.png)
+*Figure 8: The final stitched panorama showing a seamless cityscape*
 
 ## Limitations and Future Work
 
