@@ -98,7 +98,7 @@ dots_contours = [cnt for cnt in contours if np.shape(cnt)[0] > min_ring_size]
 #### Original Image
 
 <div align="center">
-  <img src="output_images/original_coin_image.png" alt="Original Coin Image">
+  <img src="output_images/original_coin_image.jpg" alt="Original Coin Image">
   <p><em>Figure 1: Original input image containing Indian coins of different denominations</em></p>
 </div>
 
@@ -208,7 +208,7 @@ status, panorama = stitcher.stitch(images)
 
 <div align="center">
   <img src="output_images/final_panorama.png" alt="Final Panorama">
-  <p><em>Figure 8: The final stitched panorama showing a seamless cityscape</em></p>
+  <p><em>Figure 8: The final stitched panorama </em></p>
 </div>
 
 ## Limitations and Future Work
